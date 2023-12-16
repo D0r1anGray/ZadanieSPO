@@ -191,7 +191,11 @@ namespace Zadanie1Deutcsh
                 else if(hundertFlag == true){
                     if(decimalsDict.ContainsKey(word[i])){
                         //decimalFlag = true;
-                        if(word[i] != word[word.Length - 1]){
+                        if(!hundertDict.ContainsKey(word[i-1]){
+                            OutputTextBox.Text = $"Ошибка! Слово {word[i]} не может повторяться в трехзначном числе!";
+                            return;
+                        }
+                        else if(word[i] != word[word.Length - 1]){
                             OutputTextBox.Text = $"Ошибка! После слова ДЕСЯТИЧНОГО формата {word[i]}" +
                             $" не могут идти слова, если перед ним было слово формата СОТЕН {word[i-1]}";
                             hundertFlag = false;
@@ -210,7 +214,11 @@ namespace Zadanie1Deutcsh
                     }
                     else if(gapDict.ContainsKey(word[i])){
                         //gapFlag = true;
-                        if(word[i] != word[word.Length - 1]){
+                        if(!hundertDict.ContainsKey(word[i-1]){
+                            OutputTextBox.Text = $"Ошибка! Слово {word[i]} не может повторяться в трехзначном числе!";
+                            return;
+                        }
+                        else if(word[i] != word[word.Length - 1]){
                             //gapFlag = true;
                             OutputTextBox.Text = $"Ошибка! После слова формата 10-19 ({word[i]}) " +
                             $"не могут идти слова, если перед ним было слово формата СОТЕН {word[i-1]}";
