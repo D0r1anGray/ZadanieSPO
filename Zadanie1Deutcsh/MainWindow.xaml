@@ -5,32 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadanie1Deutcsh"
         mc:Ignorable="d"
-        Title="Deutcsh Form" Height="250" Width="350" MinWidth="350" MinHeight="250" MaxWidth = "350" MaxHeight = "250">
-        <Window.Icon>
+        Title="Deutcsh Form" Height="250" Width="350" MinWidth="350" MinHeight="250" MaxWidth="350" MaxHeight="250">
+    <Window.Icon>
         <ImageSource>C:\Users\dange\OneDrive\Рабочий стол\ZadanieSPO\Zadanie1Deutcsh\LogoBSBO-17-21.png</ImageSource>
     </Window.Icon>
     <Grid>
-
         <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Введите число на немецком языке" HorizontalAlignment="Center" VerticalAlignment="Center"
-         FontWeight="Bold" FontSize="16"/>
+                   FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="InputTextBox" Width="200" Margin="0,5,0,5" Grid.Row="1"/>
 
-        <Button Content="Преобразовать" Width="100" Height="30" Click="ConvertButton_Click" Grid.Row="2" Margin="0,25,0,25"/>
+        <!-- <Button Content="Преобразовать" Width="100" Height="30" Click="ConvertButton_Click" Grid.Row="2" Margin="0,25,0,25"/> -->
 
         <TextBlock Text="Вывод" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5"
-         FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="OutputTextBox" Width="200" Grid.Row="4"/>
+                   FontWeight="Bold" FontSize="16"/>
+        <!-- Изменено на TextBlock -->
+        <TextBlock x:Name="OutputTextBox" Width="250" Grid.Row="4" TextWrapping="Wrap" />
     </Grid>
 </Window>
