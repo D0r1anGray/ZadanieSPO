@@ -173,10 +173,17 @@ namespace Zadanie1Deutcsh
             for(int i = 0; i < word.Length; i++){
                 if(hundertDict.ContainsKey(word[i])){
                     if(hundertFlag == true){
-                        OutputTextBox.Text = $"Ошибка! После слов формата СОТЕН {word[i-1]}, не может быть слово формата СОТЕН {word[i]}!";
+                        if(word[i-1]=="und"){
+                            OutputTextBox.Text = "Здесь не должно быть слова 'und'!";
+                            return;
+                        }
+                        else{
+                        OutputTextBox.Text = $"Ошибка! После слов формата СОТЕН {word[0]}, не может быть слово формата СОТЕН {word[i]}!";
                         //hundertFlag = false;
                         //return -1;
                         return;
+                        }
+
                         //break;
                     }
                     else{
@@ -262,10 +269,15 @@ namespace Zadanie1Deutcsh
                                 OutputTextBox.Text = $"Ошибка! Единица '{word[i]}' не может идти после единицы '{word[i - 1]}'";
                                 return;
                             }
+                            else if(word[i-1] == "und"){
+                                OutputTextBox.Text = "Слово 'und' не должно стоять здесь!";
+                                return;
+                            }
                             else if(!hundertDict.ContainsKey(word[i-1])){
                                 OutputTextBox.Text = $"Ошибка! Слово ЕДИНИЧНОГО формата '{word[i]}' не должно идти после слова ЕДИНИЧНОГО формата!";
                                 return;
                             }
+
 
                         }
                         else if(word[i + 1] == word[word.Length - 1] && word[i + 1]=="und"){
@@ -287,8 +299,9 @@ namespace Zadanie1Deutcsh
                                 //break;
                             }
                             else if(unitsDict.ContainsKey(word[i + 2])){
-                                OutputTextBox.Text = $"Ошибка! После слова ЕДИНИЧНОГО формата '{word[i]}', если передним было слово формата СОТЕН '{word[i - 1]}', " +
-                                $"не может стоять снова слово ЕДИНИЧНОГО формата {word[i+2]}";
+                                // OutputTextBox.Text = $"Ошибка! После слова ЕДИНИЧНОГО формата '{word[i]}', если передним было слово формата СОТЕН '{word[i - 1]}', " +
+                                // $"не может стоять снова слово ЕДИНИЧНОГО формата {word[i+2]}";
+                                OutputTextBox.Text = "Ошибка! Слово 'und' не должно здесь стоять!";
                                 return;
                             }
                             else if(!decimalsDict.ContainsKey(word[i+2])){
@@ -315,6 +328,7 @@ namespace Zadanie1Deutcsh
                         //return -1;
                         return;
                     }
+
                 }
                 else if(word[i] == "und"){
                     OutputTextBox.Text = "Слово 'und' не может быть ПЕРВЫМ";
