@@ -25,13 +25,13 @@ namespace Zadanie1Deutcsh
         Dictionary<string, int> hundertDict = new Dictionary<string, int>{
             {"hundert", 100},
             {"zweihundert", 200},
-            {"dreihundert", 300},
-            {"vierhundert", 400},
-            {"funfhundert", 500},
-            {"sechshundert", 600},
-            {"siebenhundert", 700},
-            {"achthundert", 800},
-            {"neunhundert", 900}
+            {"dreihundert ", 300},
+            {"vierhundert ", 400},
+            {"funfhundert ", 500},
+            {"sechshundert ", 600},
+            {"siebenhundert ", 700},
+            {"achthundert ", 800},
+            {"neunhundert ", 900}
         };
 
         Dictionary<string, int> decimalsDict = new Dictionary<string, int>{
@@ -94,7 +94,7 @@ namespace Zadanie1Deutcsh
     // Если пользователь нажал пробел и ввод валиден, вызываем проверку и отображение ошибки
             string input = InputTextBox.Text;
             string[] words = input.ToLower().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (e.Key == Key.Space || e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 ErrorWord(InputTextBox.Text);
                 RepeatError(input);
@@ -119,18 +119,6 @@ namespace Zadanie1Deutcsh
             else OutputTextBox.Text = "";
             
         }
-
-        // void InputTimerElapsed(object sender, ElapsedEventArgs e)
-        // {
-        //     // Таймер сработал, показываем сообщение
-        //     if(OutputTextBox.Text == string.Empty){
-        //         Dispatcher.Invoke(() =>
-        //         {
-        //             OutputTextBox.Text = "Для продолжения нажмите ПРОБЕЛ!";
-        //         });
-        //     }
-
-        // }
 
         void InputTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -165,8 +153,7 @@ namespace Zadanie1Deutcsh
             
         }
 
-        void AfterHundert(string inputText)
-        {
+        void AfterHundert(string inputText){
             string[] word = inputText.ToLower().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
             hundertFlag = false;
             //foreach(var word in input)
@@ -201,7 +188,7 @@ namespace Zadanie1Deutcsh
                         // }
 
                         if(word[i] != word[word.Length - 1]){
-                            OutputTextBox.Text = $"Ошибка! После слова ДЕСЯТИЧНОГО формата {word[i]}" +
+                            OutputTextBox.Text = $"Ошибка! После слова ДЕСЯТИЧНОГО формата (от 20 до 90) {word[i]}" +
                             $" не могут идти слова, если перед ним было слово формата СОТЕН {word[0]}";
                             //hundertFlag = false;
                             //decimalFlag = false;
@@ -228,7 +215,7 @@ namespace Zadanie1Deutcsh
                         // }
                         if(word[i] != word[word.Length - 1]){
                             //gapFlag = true;
-                            OutputTextBox.Text = $"Ошибка! После слова формата 10-19 ({word[i]}) " +
+                            OutputTextBox.Text = $"Ошибка! После слова формата 11-19 ({word[i]}) " +
                             $"не могут идти слова, если перед ним было слово формата СОТЕН {word[i-1]}";
                             //hundertFlag = false;
                             //decimalFlag = false;
@@ -305,7 +292,7 @@ namespace Zadanie1Deutcsh
                                 return;
                             }
                             else if(!decimalsDict.ContainsKey(word[i+2])){
-                                OutputTextBox.Text = $"Ошибка! После слова {word[i+1]} могут идти слова только ДЕСЯТИЧНОГО формата!";
+                                OutputTextBox.Text = $"Ошибка! После слова {word[i+1]} могут идти слова только ДЕСЯТИЧНОГО формата (от 20 до 90)!";
                                 // hundertFlag = false;
                                 //return -1;
                                 return;
@@ -378,20 +365,6 @@ namespace Zadanie1Deutcsh
             }
             return result;
         }
-        // private void ErrorWord(string inputText)
-        // {
-        //     string[] words = inputText.ToLower().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-        //     foreach (var word in words)
-        //     {
-        //         if (!hundertDict.ContainsKey(word) && !decimalsDict.ContainsKey(word) &&
-        //             !gapDict.ContainsKey(word) && !unitsDict.ContainsKey(word))
-        //         {
-        //             // Слово не найдено в словаре, выводим сообщение об ошибке
-        //             OutputTextBox.Text += $"\nОшибка в слове: {word}, предположительно с ошибкой";
-        //         }
-        //     }
-        // }
         void ErrorWord(string inputText)
         {
             string[] words = inputText.ToLower().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
@@ -446,48 +419,6 @@ namespace Zadanie1Deutcsh
             }
 
         }
-        
-            
-
-
-        
-
-            // // Если текущее слово содержит ошибку, но не является последним,
-            // // или если предыдущее слово содержало ошибку, добавляем пробел перед ошибкой
-            // if (currentError && !inputText.EndsWith(" ") && OutputTextBox.Text.Length > 0)
-            // {
-            //     OutputTextBox.Text += " ";
-            // }
-
-            // Добавим новую строку в конце вывода
     }
-
-        // void CheckAndDisplayError(string inputText)
-        // {
-        //     string[] words = inputText.ToLower().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-        //     // Проверяем, есть ли ошибки в словах
-        //     bool hasError = words.Any(word =>
-        //         !hundertDict.ContainsKey(word) || !decimalsDict.ContainsKey(word) ||
-        //         !gapDict.ContainsKey(word) || !unitsDict.ContainsKey(word));
-
-        //     // Очищаем поле вывода
-        //     OutputTextBox.Text = string.Empty;
-
-        //     // Если есть ошибка и ввод не завершен, не отображаем ошибку
-        //     if (hasError && !inputText.EndsWith(" "))
-        //     {
-        //         isInputValid = false;
-        //         return;
-        //     }
-
-        //     // Если ошибок нет или ввод завершен, отображаем результат
-        //     isInputValid = true;
-            
-        //     OutputTextBox.Text += Convert.ToString(ConvertNumber(words));
-        //     //OutputTextBox.Text += "\n";
-        //     inputTimer.Stop();
-        // }
-
 }
 

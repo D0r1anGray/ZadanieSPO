@@ -1,14 +1,14 @@
-﻿<Window x:Class="Zadanie1Deutcsh.MainWindow"
+﻿<Window x:Class="Zadanie1New.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Zadanie1Deutcsh"
+        xmlns:local="clr-namespace:Zadanie1New"
         mc:Ignorable="d"
         Title="Deutcsh Form" Height="250" Width="350" MinWidth="350" MinHeight="250" MaxWidth="350" MaxHeight="250">
-    <Window.Icon>
-        <ImageSource>C:\Users\dange\OneDrive\Рабочий стол\ZadanieSPO\Zadanie1Deutcsh\LogoBSBO-17-21.png</ImageSource>
-    </Window.Icon>
+    <!-- <Window.Icon>
+        <ImageSource>C:\Users\dange\OneDrive\Рабочий стол\ZadanieSPO\Zadanie1New\LogoBSBO-17-21.png</ImageSource>
+    </Window.Icon> -->
     <Grid>
         <StackPanel Margin="10" HorizontalAlignment="Center">
 
